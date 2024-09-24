@@ -10,10 +10,17 @@ function Book(title, author, pages, hasRead) {
     }
 }
 
-const theHobbit = new Book('The Hobbit', ' by J.R.R. Tolkien,', ' 295 pages,', ' not read yet');
+const theMazeRunner = new Book('The Maze Runner', ' by James Dashner,', ' 371,', ' not read yet');
 
 function addBookToLibrary() {
-    return theHobbit.info();
-
+    return theMazeRunner.info();
 }
+
 console.log(myLibrary[0]());
+
+const bookTitle = document.querySelector('#title');
+const bookAuthor = document.querySelector('#author');
+const bookPages = document.querySelector('#pages');
+const bookCheckbox = document.querySelector('#checkbox');
+const addBook = document.querySelector('#addBook');
+
