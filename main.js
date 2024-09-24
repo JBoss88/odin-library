@@ -1,3 +1,10 @@
+const inputTitle = document.querySelector('#title');
+const inputAuthor = document.querySelector('#author');
+const inputPages = document.querySelector('#pages');
+const inputCheckbox = document.querySelector('#checkbox');
+const addDataButton = document.querySelector('#addDataButton');
+const outputContainer = document.querySelector('#output-container');
+
 const myLibrary = [addBookToLibrary];
 
 function Book(title, author, pages, hasRead) {
@@ -18,23 +25,17 @@ function addBookToLibrary() {
 
 console.log(myLibrary[0]());
 
-const bookTitle = document.querySelector('#title');
-const titleOutput = document.querySelector('.titleOutput');
-
-const bookAuthor = document.querySelector('#author');
-const authorOutput = document.querySelector('.authorOutput');
-
-const bookPages = document.querySelector('#pages');
-const pagesOutput = document.querySelector('.pagesOutput');
-
-const bookCheckbox = document.querySelector('#checkbox');
-const checkboxOutput = document.querySelector('#checkboxOutput');
-
-const addDataButton = document.querySelector('#addDataButton');
-
 addDataButton.addEventListener('click', (e) => {
-    titleOutput.innerText = `Title: ${bookTitle.value}`;
-    authorOutput.innerText = `Author: ${bookAuthor.value}`;
-    pagesOutput.innerText = `Number of pages: ${bookPages.value}`;
-
+    const myBook = document.createElement('div');
+    const outputTitle = document.createElement('div');
+    const outputAuthor = document.createElement('div');
+    const outputPages = document.createElement('div');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    // makeBook.classList.add('book-container');
+    outputTitle.innerText = `Title: ${inputTitle.value}`;
+    outputAuthor.innerText = `Author: ${inputAuthor.value}`;
+    outputPages.innerText = `Number of pages: ${inputPages.value}`;
+    myBook.append(outputTitle, outputAuthor, outputPages, checkbox);
+    outputContainer.append(myBook);
 });

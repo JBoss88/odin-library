@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Your Library</h1>
-
+    <div class="input-container">
         <div>
             <label for="title">Title:</label>
             <input type="text" id="title" name="title">
@@ -29,16 +29,12 @@
             <label for="checkbox">Has been read?</label>
             <input type="checkbox" id="checkbox" name="checkbox">
         </div>
+    </div>
 
-        <div>
-            <button id='addDataButton'>Add Book</button>
-        </div>
-
-        <div>
-            <h1 class="titleOutput"></h1>
-            <h1 class="authorOutput"></h1>
-            <h1 class="pagesOutput"></h1>
-            <h1 class="checkboxOutput"></h1>
-        </div>
+    <div>
+        <button id='addDataButton'>Add Book</button>
+    </div>
+    
+    <div id='output-container'></div>
 </body>
 </html>
