@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Your Library</h1>
-    <form action="" method="post">
+
         <div>
             <label for="title">Title:</label>
             <input type="text" id="title" name="title">
@@ -29,9 +29,16 @@
             <label for="checkbox">Has been read?</label>
             <input type="checkbox" id="checkbox" name="checkbox">
         </div>
+
         <div>
-            <button id='addBook'>Add Book</button>
+            <button id='addDataButton'>Add Book</button>
         </div>
-    </form>
+
+        <div>
+            <h1 class="titleOutput"></h1>
+            <h1 class="authorOutput"></h1>
+            <h1 class="pagesOutput"></h1>
+            <h1 class="checkboxOutput"></h1>
+        </div>
 </body>
 </html>
