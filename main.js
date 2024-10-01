@@ -1,41 +1,23 @@
-const inputTitle = document.querySelector('#title');
-const inputAuthor = document.querySelector('#author');
-const inputPages = document.querySelector('#pages');
-const inputCheckbox = document.querySelector('#checkbox');
-const addDataButton = document.querySelector('#addDataButton');
-const outputContainer = document.querySelector('#output-container');
-
-const myLibrary = [addBookToLibrary];
+const myLibrary = [];
 
 function Book(title, author, pages, hasRead) {
-    this.info = function() {
+    this.info = function () {
         this.title = title;
         this.author = author;
         this.pages = pages;
-        this.read = hasRead;
-        return this.title + this.author + this.pages + this.hasRead;
+        this.hasRead = hasRead;
+        return `${this.title}, by ${this.author}, ${this.pages} pages, ${this.hasRead}`;
     }
 }
 
-const theMazeRunner = new Book('The Maze Runner', ' by James Dashner,', ' 371,', ' not read yet');
+const theMazeRunner = new Book('The Maze Runner', 'James Dashner', 372, 'not read yet');
+const theHungerGames = new Book('The Hunger Games', 'Suzanne Collins', 374, 'not read yet');
+const harryPotter = new Book('Harry Potter', 'J.K. Rowling', 309, 'not read yet');
 
-function addBookToLibrary() {
-    return theMazeRunner.info();
+console.log(theMazeRunner.info());
+console.log(theHungerGames.info());
+console.log(harryPotter.info())
+
+function addBookToLbrary() {
+
 }
-
-console.log(myLibrary[0]());
-
-addDataButton.addEventListener('click', (e) => {
-    const myBook = document.createElement('div');
-    const outputTitle = document.createElement('div');
-    const outputAuthor = document.createElement('div');
-    const outputPages = document.createElement('div');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    // makeBook.classList.add('book-container');
-    outputTitle.innerText = `Title: ${inputTitle.value}`;
-    outputAuthor.innerText = `Author: ${inputAuthor.value}`;
-    outputPages.innerText = `Number of pages: ${inputPages.value}`;
-    myBook.append(outputTitle, outputAuthor, outputPages, checkbox);
-    outputContainer.append(myBook);
-});
