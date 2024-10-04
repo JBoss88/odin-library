@@ -10,11 +10,20 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.toggleRead = function () {
+    this.read = !this.read;
+}
+
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+    render();
+}
+
 function render() {
     let libraryBook = document.querySelector('#library');
     libraryBook.innerHTML = '';
-    for (let key of myLibrary) {
-        let book = key;
+    for (let i = 0; i < myLibrary.length; i++) {
+        let book = i;
         let bookEl = document.createElement('div');
         bookEl.innerHTML = `
             <div class="card-header">
@@ -24,9 +33,15 @@ function render() {
             <div class="card-body">
                 <p>${book.pages} pages</p>
                 <p class="read-status">${book.read ? "Read" : "Not Read Yet"}</p>
+                <button class="remove-btn" onclick="removeBook(${i})">Remove</button>
             </div>`;
             libraryBook.appendChild(bookEl);
     }
+}
+
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    render();
 }
 
 function addBookToLibrary() {
@@ -47,38 +62,3 @@ newBookForm.addEventListener('submit', (event) => {
     event.preventDefault();
     addBookToLibrary();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// this.info = function () {
-//     return `${this.title}, by ${this.author}, ${this.pages} pages, ${this.hasRead}`;
-// }
-// const book1 = new Book('The Maze Runner', 'James Dashner', 372, 'not read yet');
-// const book2 = new Book('The Hunger Games', 'Suzanne Collins', 374, 'not read yet');
-// const book3 = new Book('Harry Potter', 'J.K. Rowling', 309, 'not read yet');
