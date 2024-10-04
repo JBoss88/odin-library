@@ -12,6 +12,7 @@ function Book(title, author, pages, read) {
 
 function render() {
     let libraryBook = document.querySelector('#library');
+    libraryBook.innerHTML = '';
     for (let key of myLibrary) {
         let book = key;
         let bookEl = document.createElement('div');
@@ -34,7 +35,6 @@ function addBookToLibrary() {
     let pages = document.querySelector('#pages').value;
     let read = document.querySelector('#read').checked;
     let newBook = new Book(title, author, pages, read);
-    // console.log(newBook);
     myLibrary.push(newBook);
     render();
 }
